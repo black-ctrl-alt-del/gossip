@@ -43,7 +43,7 @@ def create_log_error(_file, _application, _exception):
 def verifyFrontend(_application):
     print(emoji.emojize(f"{text_colors.BOLD}[FRONTEND] {text_colors.ENDC}{_application['url']} - Verificando :high_voltage:"), end='\r')
     try:
-        request = requests.head(_application['url'], timeout=5)
+        request = requests.head(_application['url'], timeout=30)
         if request.status_code == 200:
             print(emoji.emojize(f"{text_colors.BOLD}[FRONTEND] {text_colors.ENDC}{text_colors.OKGREEN}{_application['url']} - SERVIÇO ONLINE :check_mark_button:{text_colors.ENDC}"))
         else:
@@ -58,7 +58,7 @@ def verifyFrontend(_application):
 def verifyBackend(_application):
     print(emoji.emojize(f"{text_colors.BOLD}[BACKEND] {text_colors.ENDC}{_application['url']} - Verificando :high_voltage:"), end='\r')
     try:
-        request = requests.head(_application['url'], timeout=5)
+        request = requests.head(_application['url'], timeout=30)
         if request.status_code == 200 or request.status_code == 403:
             print(emoji.emojize(f"{text_colors.BOLD}[BACKEND] {text_colors.ENDC}{text_colors.OKGREEN}{_application['url']} - SERVIÇO ONLINE :check_mark_button:{text_colors.ENDC}"))
         else:
