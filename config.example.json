@@ -1,0 +1,34 @@
+[
+    {
+      "name": "",
+      "frontend": [
+        {
+          "url": "",
+          "logFile": ""
+        },
+        {
+          "url": "",
+          "logFile": ""
+        },
+        {
+          "url": "",
+          "logFile": ""
+        }
+      ],
+      "backend": [
+        {
+          "url": "",
+          "logFile": ""
+        },
+        {
+          "url": "",
+          "logFile": ""
+        },
+        {
+          "url": "",
+          "logFile": ""
+        }
+      ]
+    }
+  ]
+  
