@@ -81,14 +81,8 @@ def main():
         ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝╚═╝  SERVICE MONITOR
     ''')
     print(f"Data e Hora: {datetime.datetime.now()}")
-    # print("Carregando arquivo de configuração...")
-    try:
-        openConfigBlob = open('config.json')
-        config = json.load(openConfigBlob)
-    except Exception:
-        print("Nao foi encontrado o arquivo de configuracao.")
-        print("Por favor visite nosso link: https://gossip.ctrl-alt-delete.com.br")
-        exit()
+    openConfigBlob = open('config.json')
+    config = json.load(openConfigBlob)
 
     for project in config:
         print(f"\n{text_colors.BOLD}{text_colors.HEADER}{project['name']}{text_colors.ENDC}")
@@ -97,7 +91,12 @@ def main():
         for application_backend in project['backend']:
             verifyBackend(application_backend)
 
+def verifyIfConfigFileExists():
+    verify = os.path.exists("config.json")
+    if verify == False:
+        raise ValueError('[HOLMES] ARQUIVO DE CONFIGURACAO NAO ENCONTRADO')
 
 while True:
+    verifyIfConfigFileExists()
     main()
     time.sleep(60)
